@@ -1,6 +1,25 @@
 # Ultimate Game Stash
 
-For the regularly updating doc go to [Google Docs](https://docs.google.com/document/d/1_FmH3BlSBQI7FGgAQL59-ZPe8eCxs35wel6JUyVaG8Q/)
+## Games Data
+
+```json
+{
+  "games": [
+    {
+      "name": "Madness Combat Defense",
+      "platform": "Ruffle (Flash emulator)",
+      "source": "https://cdn.jsdelivr.net/gh/QiProject/flash-games@8a30ea684498b868a7b1cd188bd860ba2042eb56/Madness-Combat-Defense.swf",
+      "technical": {
+        "emulator": "Ruffle.js",
+        "aspectRatio": "5.5:3",
+        "background": "black",
+        "scaling": "dynamic",
+        "features": ["responsive-sizing", "window-resize-support", "letterboxing"]
+      }
+    }
+  ]
+}
+```
 
 ## Really Cool Flash Game
 

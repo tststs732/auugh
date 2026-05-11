@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Madness Combat Defense - Flash Game Player using Ruffle Emulator">
+    <meta name="referrer" content="no-referrer">
     <title>Ultimate Game Stash - Madness Combat Defense</title>
     <style>
         * {
@@ -11,12 +13,18 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
             background: #1a1a1a;
             color: #fff;
             padding: 20px;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .container {
@@ -61,6 +69,7 @@
             background: #333;
             padding: 15px;
             border-radius: 5px;
+            word-wrap: break-word;
         }
 
         .info-item strong {
@@ -80,10 +89,25 @@
         #ruffle-container {
             width: 100%;
             aspect-ratio: 5.5/3;
+            min-height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #000;
+        }
+
+        .fallback-message {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 1.1em;
+            color: #ff6666;
+            line-height: 1.6;
+        }
+
+        .fallback-message strong {
+            color: #ff0000;
+            display: block;
+            margin-bottom: 10px;
         }
 
         .features {
@@ -118,8 +142,13 @@
                 font-size: 1.8em;
             }
 
+            body {
+                padding: 10px;
+            }
+
             #ruffle-container {
                 aspect-ratio: 5.5/3;
+                min-height: 200px;
             }
         }
     </style>
@@ -140,7 +169,7 @@
                 </div>
                 <div class="info-item">
                     <strong>Platform</strong>
-                    Ruffle (Flash Emulator)
+                    Flash (Ruffle Emulator)
                 </div>
                 <div class="info-item">
                     <strong>Aspect Ratio</strong>
@@ -148,7 +177,7 @@
                 </div>
             </div>
             <p style="line-height: 1.6; margin-bottom: 15px;">
-                A flash game viewer using Ruffle emulator. This page displays the Madness Combat Defense flash game 
+                A flash game viewer using the Ruffle emulator. This page displays the Madness Combat Defense flash game 
                 with proper scaling and black borders for aspect ratio preservation. Play this classic flash game 
                 directly in your browser!
             </p>
@@ -157,10 +186,10 @@
                     <strong>✓</strong> Responsive Sizing
                 </div>
                 <div class="feature">
-                    <strong>✓</strong> Window Resize Support
+                    <strong>✓</strong> Aspect Ratio Preservation
                 </div>
                 <div class="feature">
-                    <strong>✓</strong> Dynamic Scaling
+                    <strong>✓</strong> Cross-Browser Compatible
                 </div>
                 <div class="feature">
                     <strong>✓</strong> Letterboxing
@@ -175,11 +204,21 @@
                     type="application/x-shockwave-flash" 
                     width="100%" 
                     height="100%" 
-                    allowFullScreen="true"
+                    allowfullscreen="true"
                     quality="high"
                     scale="showall"
                     bgcolor="#000000"
+                    wmode="transparent"
                 />
+                <noscript>
+                    <div class="fallback-message">
+                        <strong>⚠️ Flash Player Not Available</strong>
+                        <p>Your browser does not support Flash content. Please:</p>
+                        <p>1. Update your browser to the latest version</p>
+                        <p>2. Enable Flash content in your browser settings</p>
+                        <p>3. Try a different browser if the issue persists</p>
+                    </div>
+                </noscript>
             </div>
         </div>
 
@@ -187,8 +226,8 @@
             <h2>🛠️ Technical Information</h2>
             <div class="info-grid">
                 <div class="info-item">
-                    <strong>Emulator</strong>
-                    Ruffle.js
+                    <strong>Technology</strong>
+                    HTML5 Embed + Ruffle.js
                 </div>
                 <div class="info-item">
                     <strong>Background</strong>
@@ -196,22 +235,18 @@
                 </div>
                 <div class="info-item">
                     <strong>Scaling</strong>
-                    Dynamic with Aspect Ratio
+                    Aspect Ratio Preserved
                 </div>
             </div>
             <p style="line-height: 1.6; margin-top: 15px;">
-                The page loads a Ruffle player and streams the SWF file into a container with proper aspect ratio 
-                handling and black letterboxing. Ruffle is a Flash Player emulator written in Rust that allows you 
-                to play Flash games and content in modern browsers.
+                Ruffle is a Flash Player emulator written in Rust that allows you to play Flash games and content in modern browsers without requiring the Flash plugin.
             </p>
         </div>
 
         <footer>
             <p>&copy; 2026 Ultimate Game Stash | Powered by Ruffle Flash Emulator</p>
-            <p>Flash game content streamed from QiProject</p>
+            <p>Flash game content courtesy of QiProject</p>
         </footer>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/ruffle-rs@latest/ruffle.js"></script>
 </body>
 </html>

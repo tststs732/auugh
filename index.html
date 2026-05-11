@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Game Stash - Madness Combat Defense</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 2px solid #ff0000;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .game-info {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ff0000;
+        }
+
+        .game-info h2 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .info-item strong {
+            display: block;
+            color: #ff0000;
+            margin-bottom: 5px;
+        }
+
+        .player-container {
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        #ruffle-container {
+            width: 100%;
+            aspect-ratio: 5.5/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2em;
+            color: #ff0000;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            padding: 20px;
+            background: #2a2a2a;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background: #ff0000;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #cc0000;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #ff0000;
+        }
+
+        .feature strong {
+            color: #ff0000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #ff0000;
+            margin-top: 40px;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            #ruffle-container {
+                aspect-ratio: 5.5/3;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Ultimate Game Stash</h1>
+            <p>Madness Combat Defense - Flash Game Player</p>
+        </header>
+
+        <div class="game-info">
+            <h2>📋 Game Details</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Game Title</strong>
+                    Madness Combat Defense
+                </div>
+                <div class="info-item">
+                    <strong>Platform</strong>
+                    Ruffle (Flash Emulator)
+                </div>
+                <div class="info-item">
+                    <strong>Aspect Ratio</strong>
+                    5.5:3 (Responsive)
+                </div>
+            </div>
+            <p style="line-height: 1.6; margin-bottom: 15px;">
+                A flash game viewer using Ruffle emulator. This page displays the Madness Combat Defense flash game 
+                with proper scaling and black borders for aspect ratio preservation. Play this classic flash game 
+                directly in your browser!
+            </p>
+            <div class="features">
+                <div class="feature">
+                    <strong>✓</strong> Responsive Sizing
+                </div>
+                <div class="feature">
+                    <strong>✓</strong> Window Resize Support
+                </div>
+                <div class="feature">
+                    <strong>✓</strong> Dynamic Scaling
+                </div>
+                <div class="feature">
+                    <strong>✓</strong> Letterboxing
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="fullscreenGame()">⛶ Fullscreen</button>
+            <button onclick="reloadGame()">🔄 Reload Game</button>
+        </div>
+
+        <div class="player-container">
+            <div id="ruffle-container">
+                <div class="loading">Loading Madness Combat Defense...</div>
+            </div>
+        </div>
+
+        <div class="game-info">
+            <h2>🛠️ Technical Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Emulator</strong>
+                    Ruffle.js
+                </div>
+                <div class="info-item">
+                    <strong>Background</strong>
+                    Black (Letterboxed)
+                </div>
+                <div class="info-item">
+                    <strong>Scaling</strong>
+                    Dynamic with Aspect Ratio
+                </div>
+            </div>
+            <p style="line-height: 1.6; margin-top: 15px;">
+                The page loads a Ruffle player and streams the SWF file into a container with proper aspect ratio 
+                handling and black letterboxing. Ruffle is a Flash Player emulator written in Rust that allows you 
+                to play Flash games and content in modern browsers.
+            </p>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Ultimate Game Stash | Powered by Ruffle Flash Emulator</p>
+            <p>Flash game content streamed from QiProject</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ruffle-rs@latest/ruffle.js"></script>
+    <script>
+        // Initialize Ruffle player
+        window.RufflePlayer = window.RufflePlayer || {};
+        
+        function initializeGame() {
+            const container = document.getElementById('ruffle-container');
+            container.innerHTML = '';
+            
+            // Create Ruffle player instance
+            let player = new window.RufflePlayer.Player();
+            
+            // Configure player
+            player.config = {
+                autoplay: 'on',
+                unmuteOverlay: 'hidden',
+                letterbox: 'fullscreen',
+                allowFullscreen: true,
+                showMenu: true
+            };
+
+            // Load the SWF file
+            player.load({
+                url: 'https://cdn.jsdelivr.net/gh/QiProject/flash-games@8a30ea684498b868a7b1cd188bd860ba2042eb56/Madness-Combat-Defense.swf'
+            });
+
+            container.appendChild(player);
+        }
+
+        function fullscreenGame() {
+            const container = document.getElementById('ruffle-container').firstChild;
+            if (container && container.requestFullscreen) {
+                container.requestFullscreen().catch(err => {
+                    console.error('Fullscreen request failed:', err);
+                    alert('Fullscreen is not supported in your browser');
+                });
+            }
+        }
+
+        function reloadGame() {
+            initializeGame();
+        }
+
+        // Initialize game when page loads
+        window.addEventListener('load', initializeGame);
+
+        // Handle window resize for responsive scaling
+        window.addEventListener('resize', () => {
+            const container = document.getElementById('ruffle-container');
+            // Ruffle automatically handles resizing
+        });
+    </script>
+</body>
+</html>
